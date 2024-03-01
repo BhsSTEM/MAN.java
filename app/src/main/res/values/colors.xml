@@ -2,6 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="someTeal">#0af2e3</color>
     <color name="red">#FF0000</color>
     <color name="AlexsNewColor">#3ede86</color>
 </resources>
