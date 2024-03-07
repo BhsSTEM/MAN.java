@@ -2,10 +2,13 @@ package com.example.manjavatest;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
 
 public class UsersDB extends SQLiteOpenHelper {
 
@@ -29,7 +32,7 @@ public class UsersDB extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         // CREATE TABLE Users ( id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT, first_name TEXT, last_name TEXT, email TEXT, phone_no TEXT
-        db.execSQL("CREATE TABLE " + TABLE_NAME + "(" + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+        db.execSQL("CREATE TABLE " + TABLE_NAME + "(" + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + KEY_USERNAME + " TEXT, " + KEY_PASSWORD + " TEXT, "
                 + KEY_FIRST_NAME + " TEXT, " + KEY_LAST_NAME
                 + " TEXT, " + KEY_EMAIL + " TEXT, " + KEY_PHONE_NO + " TEXT)");
@@ -64,7 +67,29 @@ public class UsersDB extends SQLiteOpenHelper {
         db.insert(TABLE_NAME, null, values);
 
 
-        db.close();
+//        db.close();
 
+    }
+
+    public ArrayList<ModelUser> addUser() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+
+        ArrayList<ModelUser> list = new ArrayList<>();
+
+        while (c.moveToNext()) {
+            ModelUser mu = new ModelUser();
+            mu.id = c.getInt(0);
+            mu.username = c.getString(1);
+            mu.pass = c.getString(2);
+            mu.firstN = c.getString(3);
+            mu.lastN = c.getString(4);
+            mu.email = c.getString(5);
+            mu.phoneNum = c.getString(6);
+
+            list.add(mu);
+        }
+
+        return list;
     }
 }
