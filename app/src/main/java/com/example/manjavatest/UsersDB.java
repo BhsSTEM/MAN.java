@@ -71,7 +71,7 @@ public class UsersDB extends SQLiteOpenHelper {
 
     }
 
-    public ArrayList<ModelUser> addUser() {
+    public ArrayList<ModelUser> fetchUsers() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
 
