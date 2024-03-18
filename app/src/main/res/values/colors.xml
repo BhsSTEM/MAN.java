@@ -5,4 +5,13 @@
     <color name="someTeal">#0af2e3</color>
     <color name="red">#FF0000</color>
     <color name="AlexsNewColor">#3ede86</color>
+    <color name="JDGreen">#367C2B</color>
+    <color name="JDGreenMetallic">#20720D</color>
+    <color name="JDGreenSap">#3B8927</color>
+    <color name="JDGreenMay">#479829</color>
+    <color name="JDYellow">#FFDE00</color>
+    <color name="JDYellowPantone">#FDE100</color>
+    <color name="JDBlack">#27251F</color>
+    <color name="JDWhite">#FFFFFFFF</color>
+
 </resources>
