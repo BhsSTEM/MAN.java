@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class UsersDB extends SQLiteOpenHelper {
 
-    private static final String DB_NAME = "UsersDB";
+    private static final String DB_NAME = "uDB";
     private static final int DB_VERSION = 1;
     private static final String TABLE_NAME = "Users";
 
@@ -36,6 +36,8 @@ public class UsersDB extends SQLiteOpenHelper {
                 + KEY_USERNAME + " TEXT, " + KEY_PASSWORD + " TEXT, "
                 + KEY_FIRST_NAME + " TEXT, " + KEY_LAST_NAME
                 + " TEXT, " + KEY_EMAIL + " TEXT, " + KEY_PHONE_NO + " TEXT)");
+
+//        db.execSQL("DROP TABLE UsersDB");
 
 //        SQLiteDatabase dB = this.getWritableDatabase();
 //
@@ -92,4 +94,5 @@ public class UsersDB extends SQLiteOpenHelper {
 
         return list;
     }
+
 }
