@@ -12,7 +12,7 @@
     <string name="login_text_caps">LOGIN</string>
     <string name="username_text">Username</string>
     <string name="password_text">Password</string>
-    <string name="forgot_pass_question">Forgot Your Password?</string>
+    <string name="forgot_pass_question">Forgot Your Username/Password?</string>
 
     <!--   Forgot password stuff -->
     <string name="acc_rec_text">Account Recovery</string>
