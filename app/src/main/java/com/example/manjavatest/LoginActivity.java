@@ -27,21 +27,42 @@ public class LoginActivity extends AppCompatActivity {
         forgotPassTxt = (TextView)findViewById(R.id.forgotPassText);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
+            String userInput = "";
+            String passInput = "";
             @Override
             public void onClick(View v) {
                 boolean valid = false;
-                String userInput = user.getText().toString();
-                String passInput = pass.getText().toString();
-                for(ModelUser mu : MainActivity.data) {
-                    if (userInput.equals(mu.username) && passInput.equals(mu.pass))
-                        valid = true;
+                userInput = user.getText().toString();
+                passInput = pass.getText().toString();
+
+                if (userInput.equals("") || passInput.equals("")) {
+                    if (userInput.equals("") && !passInput.equals("")) {
+                        Toast.makeText(LoginActivity.this, "Please enter a username", Toast.LENGTH_SHORT).show();
+                    }
+                    else if (!userInput.equals("") && passInput.equals("")) {
+                        Toast.makeText(LoginActivity.this, "Please enter a password", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Toast.makeText(LoginActivity.this, "Please enter a username and a password", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
-                // Adding as toasts for now, I'll link it to the right screen later
-                if (valid)
-                    Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(LoginActivity.this, "Login Failed!", Toast.LENGTH_SHORT).show();
+                if (!userInput.equals("") && !passInput.equals("")) {
+                    for (ModelUser mu : MainActivity.data) {
+                        if (userInput.equals(mu.username) && passInput.equals(mu.pass))
+                            valid = true;
+                    }
+
+                    // Adding as toasts for now, I'll link it to the right screen later
+                    if (valid) {
+                        Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
+                        userInput = "";
+                        passInput = "";
+                        valid = false;
+                    } else
+                        Toast.makeText(LoginActivity.this, "Login Failed!", Toast.LENGTH_SHORT).show();
+                }
+
 
 
             }

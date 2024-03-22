@@ -52,6 +52,7 @@
                 android:textSize="18sp"
                 android:layout_marginTop="15dp"
                 android:backgroundTint="@color/JDGreen"
+                android:textColor="@color/JDWhite"
                 app:cornerRadius="20dp"/>
 
         </LinearLayout>

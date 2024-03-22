@@ -29,6 +29,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 email = emailInput.getText().toString();
 
                 if (!email.equals("")) {
+                    email = "";
                     Intent intent = new Intent(ForgotPasswordActivity.this, RecoverPassActivity.class);
                     startActivity(intent);
 
