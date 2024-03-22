@@ -47,6 +47,11 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 }
 
+                if (passInput.equals("ChangeUser")) { // for testing purposes, remove this later
+                    boolean changedUsername = MainActivity.userDB.changeUsername(userInput, "doejohn@johndeere.com");
+                    Toast.makeText(LoginActivity.this, "Password Change was " + changedUsername, Toast.LENGTH_SHORT).show();
+                }
+
                 if (!userInput.equals("") && !passInput.equals("")) {
                     for (ModelUser mu : MainActivity.data) {
                         if (userInput.equals(mu.username) && passInput.equals(mu.pass))

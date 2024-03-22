@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.ColorSpace;
 
 import androidx.annotation.Nullable;
 
@@ -93,6 +94,42 @@ public class UsersDB extends SQLiteOpenHelper {
         }
 
         return list;
+    }
+
+    public boolean  changeUsername(String newUsername, String email) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues cv = new ContentValues();
+        cv.put(KEY_USERNAME, newUsername);
+        int rows = db.update(TABLE_NAME, cv, KEY_EMAIL + " = ?", new String[] {email});
+//        db.close();
+
+        return (rows > 0);
+
+    }
+
+    public boolean  changePassword(String newPassword, String email) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues cv = new ContentValues();
+        cv.put(KEY_PASSWORD, newPassword);
+        int rows = db.update(TABLE_NAME, cv, KEY_EMAIL + " = ?", new String[] {email});
+//        db.close();
+
+        return (rows > 0);
+
+    }
+
+    public boolean  changePhoneNo(String newPhoneNo, String email) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues cv = new ContentValues();
+        cv.put(KEY_PHONE_NO, newPhoneNo);
+        int rows = db.update(TABLE_NAME, cv, KEY_EMAIL + " = ?", new String[] {email});
+//        db.close();
+
+        return (rows > 0);
+
     }
 
 }
