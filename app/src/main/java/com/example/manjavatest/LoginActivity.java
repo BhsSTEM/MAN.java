@@ -49,7 +49,15 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (passInput.equals("ChangeUser")) { // for testing purposes, remove this later
                     boolean changedUsername = MainActivity.userDB.changeUsername(userInput, "doejohn@johndeere.com");
-                    Toast.makeText(LoginActivity.this, "Password Change was " + changedUsername, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "User Change was " + changedUsername, Toast.LENGTH_SHORT).show();
+                }
+                if (passInput.equals("ChangePass")) { // for testing purposes, remove this later
+                    boolean changedPass = MainActivity.userDB.changePassword(userInput, "doejohn@johndeere.com");
+                    Toast.makeText(LoginActivity.this, "Password Change was " + changedPass, Toast.LENGTH_SHORT).show();
+                }
+                if (passInput.equals("ChangePhone")) { // for testing purposes, remove this later
+                    boolean changedPhone = MainActivity.userDB.changePhoneNo(userInput, "doejohn@johndeere.com");
+                    Toast.makeText(LoginActivity.this, "Phone # Change was " + changedPhone, Toast.LENGTH_SHORT).show();
                 }
 
                 if (!userInput.equals("") && !passInput.equals("")) {
